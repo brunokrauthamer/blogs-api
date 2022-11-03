@@ -8,6 +8,7 @@ const login = async (req, res) => {
     return res.status(400).json({ message: 'Some required fields are missing' });
   }
   const { type, message } = await loginService.validateLogin(req.body);
+  console.log('type', type, 'message', message);
   if (type) {
     return res.status(400).json({ message });
   }

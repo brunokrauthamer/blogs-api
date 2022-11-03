@@ -9,7 +9,7 @@ const validateBody = ({ email, password }) => email && password;
 
 const validateLogin = async ({ email, password }) => {
   const user = await User.findOne({ where: { email } });
-
+  console.log(user);
   if (!user || user.password !== password) {
     return { type: 400, message: 'Invalid fields' };
   }

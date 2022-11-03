@@ -12,7 +12,7 @@ const CategorySchema = (sequelize, DataTypes) => {
   });
 
   CategoryTable.associate = (models) => {
-    CategoryTable.hasMany(models.Post_Category, {
+    CategoryTable.hasMany(models.PostCategory, {
       foreignKey: 'category_id', as: 'posts_categories'
     });
   }

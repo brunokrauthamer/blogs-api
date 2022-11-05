@@ -9,7 +9,7 @@ const validateBody = ({ email, password }) => email && password;
 
 const validateLogin = async ({ email, password }) => {
   const user = await User.findOne({ where: { email } });
-  console.log(user);
+  // console.log(user);
   if (!user || user.password !== password) {
     return { type: 400, message: 'Invalid fields' };
   }
@@ -22,15 +22,11 @@ const validateLogin = async ({ email, password }) => {
 };
 
 const validateToken = (token) => {
-  if (!token) {
-    const e = new Error('Token obrigatório!');
-    e.name = 'Token obrigatório';
-    throw e;
+  const { validated } = jwtUtil.validateToken(token);
+  if (validated) {
+    return { type: null };
   }
-
-  const user = jwtUtil.validateToken(token);
-
-  return user;
+  return { type: 401, message: 'Expired or invalid token' };
 };
 
 module.exports = {

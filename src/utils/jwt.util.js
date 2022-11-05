@@ -11,15 +11,12 @@ const createToken = (data) => {
 };
 
 const validateToken = (token) => {
-  try {
-    const { data } = jwt.verify(token, process.env.JWT_SECRET);
-
-    return data;
-  } catch (error) {
-    const e = new Error('Token inválido');
-    e.name = 'Não válido';
-    throw e;
-  }
+    try {
+      const { data } = jwt.verify(token, process.env.JWT_SECRET);
+      return { validated: true, data };
+    } catch (error) {
+      return { validated: false };
+    }    
 };
 
 module.exports = { 

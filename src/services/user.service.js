@@ -31,10 +31,19 @@ const addUser = async (body) => {
   const newUser = await User.create(body);
   const { password: _, ...userWithoutPassword } = newUser.dataValues;
   const token = jwtUtil.createToken(userWithoutPassword);
-  console.log('token', token);
+  // console.log('token', token);
   return { type: null, message: token };
+};
+
+const getAllUsers = async () => {
+  const users = await User.findAll();
+  const usersWithPassword = users.map((u) => u.dataValues);
+  const usersWithoutPassword = usersWithPassword.map((u) => ({ ...u, password: undefined }));
+  // console.log('usuarios', usersWithPassword);
+  return usersWithoutPassword;
 };
 
 module.exports = {
   addUser,
+  getAllUsers,
 };

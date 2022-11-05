@@ -7,8 +7,9 @@ const CategorySchema = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
   },
   {
-    tableName: 'category',
+    tableName: 'categories',
     underscored: true,
+    timestamps: false,
   });
 
   CategoryTable.associate = (models) => {

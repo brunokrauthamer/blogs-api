@@ -11,4 +11,6 @@ postMiddleware.validatePostBody,
 postMiddleware.validateCategoriesExists,
 postController.addPost);
 
+router.get('/', authMiddleware.validateToken, postController.getAllPosts);
+
 module.exports = router;

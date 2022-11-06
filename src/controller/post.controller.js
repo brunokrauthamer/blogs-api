@@ -7,6 +7,13 @@ const addPost = async (req, res) => {
   res.status(201).json(newPost);
 };
 
+const getAllPosts = async (_req, res) => {
+  const allPosts = await postService.getAllPosts();
+  // console.log(allPosts);
+  res.status(200).json(allPosts);
+};
+
 module.exports = {
   addPost,
+  getAllPosts,
 };

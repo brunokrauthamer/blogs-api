@@ -36,7 +36,14 @@ const getAllPosts = async () => {
   return joinedPosts;
 };
 
+const getPostById = async (id) => {
+  const allPosts = await getAllPosts();
+  const post = allPosts.find((p) => p.id === id);
+  return post;
+};
+
 module.exports = {
   addPost,
   getAllPosts,
+  getPostById,
 };

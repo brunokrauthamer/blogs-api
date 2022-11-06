@@ -13,4 +13,9 @@ postController.addPost);
 
 router.get('/', authMiddleware.validateToken, postController.getAllPosts);
 
+router.get('/:id',
+authMiddleware.validateToken,
+postMiddleware.checkPostId,
+postController.getPostById);
+
 module.exports = router;

@@ -53,8 +53,15 @@ const getOneUser = async (id) => {
   return { type: null, message: userPublicInfo };
 };
 
+const deleteUser = async (id) => {
+  await User.destroy(
+    { where: { id } },
+  );
+};
+
 module.exports = {
   addUser,
   getAllUsers,
   getOneUser,
+  deleteUser,
 };

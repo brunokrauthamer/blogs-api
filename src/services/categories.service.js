@@ -2,6 +2,7 @@ const { Category } = require('../models');
 
 const createCategory = async (category) => {
   const newCategory = await Category.create(category);
+  // console.log(newCategory.dataValues);
   return newCategory.dataValues;
 };
 

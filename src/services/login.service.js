@@ -22,9 +22,9 @@ const validateLogin = async ({ email, password }) => {
 };
 
 const validateToken = (token) => {
-  const { validated } = jwtUtil.validateToken(token);
+  const { validated, data } = jwtUtil.validateToken(token);
   if (validated) {
-    return { type: null };
+    return { type: null, data };
   }
   return { type: 401, message: 'Expired or invalid token' };
 };

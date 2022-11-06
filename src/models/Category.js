@@ -3,6 +3,7 @@ const CategorySchema = (sequelize, DataTypes) => {
     id: {
       type: DataTypes.STRING,
       primaryKey: true,
+      autoIncrement: true,
     },
     name: DataTypes.STRING,
   },

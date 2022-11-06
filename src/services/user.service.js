@@ -29,6 +29,7 @@ const addUser = async (body) => {
     return { type: 409, message: 'User already registered' };
   }
   const newUser = await User.create(body);
+  // console.log(newUser.dataValues);
   const { password: _, ...userWithoutPassword } = newUser.dataValues;
   const token = jwtUtil.createToken(userWithoutPassword);
   // console.log('token', token);

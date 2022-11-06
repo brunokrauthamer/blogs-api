@@ -45,10 +45,20 @@ const verifyEditPostBody = async (req, res, next) => {
   next();
 };
 
+const validateUserToDelete = async (req, res, next) => {
+  const post = await postService.getPostById(Number(req.params.id));
+  const postUserId = post.userId;
+  if (postUserId !== req.user.id) {
+    return res.status(401).json({ message: 'Unauthorized user' });
+  }
+  next();
+};
+
 module.exports = {
   validatePostBody,
   validateCategoriesExists,
   checkPostId,
   validateUser,
   verifyEditPostBody,
+  validateUserToDelete,
 };

@@ -52,9 +52,16 @@ const editPost = async (info, id) => {
   return post;
 };
 
+const deletePost = async (id) => {
+  await BlogPost.destroy(
+    { where: { id } },
+  );
+};
+
 module.exports = {
   addPost,
   getAllPosts,
   getPostById,
   editPost,
+  deletePost,
 };

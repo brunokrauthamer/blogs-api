@@ -24,4 +24,10 @@ postMiddleware.validateUser,
 postMiddleware.verifyEditPostBody,
 postController.editPost);
 
+router.delete('/:id',
+authMiddleware.validateToken,
+postMiddleware.checkPostId,
+postMiddleware.validateUserToDelete,
+postController.deletePost);
+
 module.exports = router;

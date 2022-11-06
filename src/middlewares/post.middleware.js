@@ -28,8 +28,27 @@ const checkPostId = async (req, res, next) => {
   next();
 };
 
+const validateUser = async (req, res, next) => {
+  const userId = req.user.id;
+  const userPostId = Number(req.params.id);
+  if (userId !== userPostId) {
+    return res.status(401).json({ message: 'Unauthorized user' });
+  }
+  next();
+};
+
+const verifyEditPostBody = async (req, res, next) => {
+  const { title, content } = req.body;
+  if (!(title && content)) {
+    return res.status(400).json({ message: 'Some required fields are missing' });
+  }
+  next();
+};
+
 module.exports = {
   validatePostBody,
   validateCategoriesExists,
   checkPostId,
+  validateUser,
+  verifyEditPostBody,
 };

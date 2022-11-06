@@ -42,8 +42,19 @@ const getPostById = async (id) => {
   return post;
 };
 
+const editPost = async (info, id) => {
+  const { title, content } = info;
+  await BlogPost.update(
+    { title, content },
+    { where: { id } },
+  );
+  const post = await getPostById(id);
+  return post;
+};
+
 module.exports = {
   addPost,
   getAllPosts,
   getPostById,
+  editPost,
 };

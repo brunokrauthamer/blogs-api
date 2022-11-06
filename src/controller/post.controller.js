@@ -18,8 +18,14 @@ const getPostById = async (req, res) => {
   res.status(200).json(post);
 };
 
+const editPost = async (req, res) => {
+  const post = await postService.editPost(req.body, Number(req.params.id));
+  res.status(200).json(post);
+};
+
 module.exports = {
   addPost,
   getAllPosts,
   getPostById,
+  editPost,
 };

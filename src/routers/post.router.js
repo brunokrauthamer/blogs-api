@@ -18,4 +18,10 @@ authMiddleware.validateToken,
 postMiddleware.checkPostId,
 postController.getPostById);
 
+router.put('/:id',
+authMiddleware.validateToken,
+postMiddleware.validateUser,
+postMiddleware.verifyEditPostBody,
+postController.editPost);
+
 module.exports = router;

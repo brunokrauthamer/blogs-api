@@ -13,11 +13,12 @@ const CategorySchema = (sequelize, DataTypes) => {
     timestamps: false,
   });
 
-  CategoryTable.associate = (models) => {
-    CategoryTable.hasMany(models.PostCategory, {
-      foreignKey: 'category_id', as: 'posts_categories'
-    });
-  }
+  // CategoryTable.associate = (models) => {
+  //   CategoryTable.hasMany(models.PostCategory, {
+  //     foreignKey: 'category_id', as: 'posts_categories'
+  //   }
+  //   );
+  // }
 
   return CategoryTable
 }

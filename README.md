@@ -8,7 +8,7 @@ The objective of this project is to create a RESTful API that is integrated with
 ## Database ER Diagram:
 ![blogs_api-er_diagram](https://user-images.githubusercontent.com/102389687/236590259-e9cd15c7-3586-4450-9aeb-8372feff633a.png)
 ## Requirements:
-  - Enpoint POST /login - Used to login registrated users :
+  - Enpoint POST /login - Used to login registered users :
     - Requisition body format:
     
       `{
@@ -20,7 +20,7 @@ The objective of this project is to create a RESTful API that is integrated with
       `{
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjo1LCJkaXNwbGF5TmFtZSI6InVzdWFyaW8gZGUgdGVzdGUiLCJlbWFpbCI6InRlc3RlQGVtYWlsLmNvbSIsImltYWdlIjoibnVsbCJ9LCJpYXQiOjE2MjAyNDQxODcsImV4cCI6MTYyMDY3NjE4N30.Roc4byj6mYakYqd9LTCozU1hd9k_Vw5IWKGL4hcCVG8"
 }`
-  - Endpoint POST /user - Used to registrate a new user:
+  - Endpoint POST /user - Used to register a new user:
     - Requisition body format:
     
     `{

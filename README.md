@@ -40,5 +40,70 @@ The objective of this project is to create a RESTful API that is integrated with
       `  {
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjo1LCJkaXNwbGF5TmFtZSI6InVzdWFyaW8gZGUgdGVzdGUiLCJlbWFpbCI6InRlc3RlQGVtYWlsLmNvbSIsImltYWdlIjoibnVsbCJ9LCJpYXQiOjE2MjAyNDQxODcsImV4cCI6MTYyMDY3NjE4N30.Roc4byj6mYakYqd9LTCozU1hd9k_Vw5IWKGL4hcCVG8"
   }`
+  - Endpoint GET /user
+    - Should return all users list
+    - A valid Token must be sent via headers
+    - Response body:
+    
+      `
+      [
+      {
+      "id": 1,
+      "displayName": "Lewis Hamilton",
+      "email": "lewishamilton@gmail.com",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg"
+      },
+      {
+      "id": 2,
+      "displayName": "Ronaldo Nazário",
+      "email": "r9@gmail.com",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg"
+      }
+      ]
+      `
+  - Endpoint GET /user/:id
+    - Should return one user (defined by :id params)
+    - A valid Token must be sent via headers
+    - Response body:
+    
+    `
+    {
+      "id": 1,
+      "displayName": "Lewis Hamilton",
+      "email": "lewishamilton@gmail.com",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg"
+    }
+    `
+  - Endpoint POST /categories
+    - It should add a new category to the table in the database
+    - Requisition body:
+    
+    `{
+        "name": "Typescript"
+    }`
+    - Response body:
+    
+    `
+    {
+      "id": 3,
+      "name": "Typescript"
+    }
+    `
+  - Endpoint GET /categories
+    - It should return all categories stored in database:
+    - Response body:
+    
+    `
+    [
+    {
+      "id": 1,
+      "name": "Inovação"
+    },
+    {
+      "id": 2,
+      "name": "Escola"
+    },
+    ]
+    `
 ## How to run:
-  - Make sure you have node installed in version 16 or higher;
+  - Make sure you have Node installed in version 16 or higher;

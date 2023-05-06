@@ -227,6 +227,19 @@ The objective of this project is to create a RESTful API that is integrated with
     - A valid Token must be sent via headers
     - The user will be deleted based on the token provided
     - There is no response body, it will just responde with status 204
-    
+ 
+## Technologies:
+  - Node.js;
+  - Express;
+  - Sequelize;
+  - MySQL;
+  - JSON Web Token (JWT), for authentication;
 ## How to run:
   - Make sure you have Node installed in version 16 or higher;
+  - Git clone this repository;
+  - Make sure to fill out the .env.exemple file and rename it to .env;
+  - Run (`npm install`);
+  - To create the database and the tables in the first time you're running the project, you can use the script (`npm run prestart`);
+  - If you want to seed the tables with exemple datas, use the script (`npm run seed`);
+  - At this point, you-re ready to run the project. Run (`npm start`) and enjoy!
+  

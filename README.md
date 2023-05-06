@@ -76,6 +76,7 @@ The objective of this project is to create a RESTful API that is integrated with
     `
   - Endpoint POST /categories
     - It should add a new category to the table in the database
+    - A valid Token must be sent via headers
     - Requisition body:
     
     `{
@@ -91,6 +92,7 @@ The objective of this project is to create a RESTful API that is integrated with
     `
   - Endpoint GET /categories
     - It should return all categories stored in database:
+    - A valid Token must be sent via headers
     - Response body:
     
     `
@@ -105,5 +107,126 @@ The objective of this project is to create a RESTful API that is integrated with
     },
     ]
     `
+  - Endpoint POST /post
+    - It should add a new blog post to the database.
+    - A valid Token must be sent via headers
+    - Requisition body:
+    
+    `
+    {
+      "title": "Latest updates, August 1st",
+      "content": "The whole text for the blog post goes here in this key",
+      "categoryIds": [1, 2]
+    }
+    
+    `
+  - Endpoint GET /post
+  - It should return a list with all the posts stored in the database.
+  - A valid Token must be sent via headers
+  - Response body:
+  
+  `
+  [
+    {
+      "id": 1,
+      "title": "Post do Ano",
+      "content": "Melhor post do ano",
+      "userId": 1,
+      "published": "2011-08-01T19:58:00.000Z",
+      "updated": "2011-08-01T19:58:51.000Z",
+      "user": {
+        "id": 1,
+        "displayName": "Lewis Hamilton",
+        "email": "lewishamilton@gmail.com",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg"
+        },
+      "categories": [
+          {
+            "id": 1,
+            "name": "Inovação"
+          }
+        ]
+     }
+]
+  `
+  - GET /post/:id
+    - It should return one post stored in the database, based on the id provided via params
+    - A valid Token must be sent via headers
+    - Response body:
+    
+    `
+    {
+      "id": 1,
+      "title": "Post do Ano",
+      "content": "Melhor post do ano",
+      "userId": 1,
+      "published": "2011-08-01T19:58:00.000Z",
+      "updated": "2011-08-01T19:58:51.000Z",
+      "user": {
+          "id": 1,
+          "displayName": "Lewis Hamilton",
+          "email": "lewishamilton@gmail.com",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg"
+      },
+      "categories": [
+          {
+              "id": 1,
+              "name": "Inovação"
+          }
+      ]
+    }
+    `
+  - Endpoint PUT /post/:id
+    - It should update a post based on the id provided via params
+    - A valid Token must be sent via headers
+    - Just the post author must be able to update it
+    - Just the atributes "title" and "content" can be updated.
+    - Requisition body:
+    
+    `
+    {
+      "title": "Latest updates, August 1st",
+      "content": "The whole text for the blog post goes here in this key"
+    }
+    `
+    - Response body:
+    
+    `
+    {
+      "id": 3,
+      "title": "Latest updates, August 1st",
+      "content": "The whole text for the blog post goes here in this key",
+      "userId": 1,
+      "published": "2022-05-18T18:00:01.000Z",
+      "updated": "2022-05-18T18:07:32.000Z",
+      "user": {
+        "id": 1,
+        "displayName": "Lewis Hamilton",
+        "email": "lewishamilton@gmail.com",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg"
+      },
+      "categories": [
+        {
+          "id": 1,
+          "name": "Inovação"
+        },
+        {
+          "id": 2,
+          "name": "Escola"
+        }
+      ]
+    }
+    `
+  - Endpoint DELETE /post/:id
+    - A post must be deleted by the id provided via params
+    - A valid Token must be sent via headers
+    - Just the post author can delete it
+    - If all conditions are respected and the provided id exists the post will be deleted from the database
+    - There is no response body, it will just responde with status 204
+  - Endpoint DELETE /user/me
+    - A valid Token must be sent via headers
+    - The user will be deleted based on the token provided
+    - There is no response body, it will just responde with status 204
+    
 ## How to run:
   - Make sure you have Node installed in version 16 or higher;
